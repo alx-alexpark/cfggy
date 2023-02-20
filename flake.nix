@@ -22,7 +22,7 @@
       alx = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [
-          ./hosts/sussybaka-computer/home-manager/alx/home.nix
+          ./home/alx/home.nix
           #{
           #  home = {
           #    username = "alx";
@@ -37,7 +37,7 @@
       sussybaka-computer = lib.nixosSystem {
         inherit system;
         modules = [
-          ./hosts/sussybaka-computer/system/configuration.nix
+          ./nixos/configuration.nix
         ];
       };
     };
