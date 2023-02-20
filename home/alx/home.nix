@@ -3,15 +3,16 @@
 {
   imports = 
     [
-    ./fish.nix
-    ./programs.nix
-    ./git.nix
+      ./config
     ];
   
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
-
+  
+  alx.gui.fontSize = 16;
+  alx.gui.font = "Jetbrains Mono";
+  alx.gui.enable = true;
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.

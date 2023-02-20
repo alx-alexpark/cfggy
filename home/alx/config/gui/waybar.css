@@ -1,0 +1,66 @@
+@define-color workspaces #6C71C4;
+@define-color focused #2AA198;
+
+#waybar {
+  border: none;
+  font-size: 13px;
+  padding: 25px 0px 0px 25px;
+  background-color: transparent;
+  font-family: Iosevka;
+}
+
+#workspaces {
+  padding: 0px 0px 0px 0px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: @workspaces;
+}
+
+#workspaces > .text-button {
+  transition: color 1000ms linear;
+  border-bottom: 5px;
+  background-color: @workspaces;
+}
+
+#workspaces > .text-button:hover {
+   border-bottom: 5px solid #D33682;
+}
+
+#workspaces > .text-button.focused {
+  border-bottom: 5px solid white;
+}
+
+#workspaces > :not(.focused) {
+  border: 5px solid transparent;
+}
+
+#battery, #clock, #cpu, #memory, #network {
+  background-color: @workspaces;
+}
+
+#window {
+   background-color: transparent;
+}
+
+#cpu, #memory, #battery, .date, .time {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+#network {
+  padding-left: 12px;
+  border-bottom-right-radius: 5px;
+  padding-right: 5px;
+}
+
+#backlight {
+   background-color: @workspaces;
+   border-bottom-left-radius: 5px;
+   padding-left: 5px;
+   padding-right: 12px;
+}
+
+#cpu {
+  padding: 5px;
+}
+
