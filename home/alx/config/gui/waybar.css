@@ -34,7 +34,7 @@
   border: 5px solid transparent;
 }
 
-#battery, #clock, #cpu, #memory, #network {
+#battery, #clock, #cpu, #memory, #network, #temperature {
   background-color: @workspaces;
 }
 
@@ -42,7 +42,7 @@
    background-color: transparent;
 }
 
-#cpu, #memory, #battery, .date, .time {
+#cpu, #memory, #battery, #temperature, .date, .time {
   padding-left: 12px;
   padding-right: 12px;
 }
