@@ -1,7 +1,6 @@
 { pkgs, lib, config, ... }:
 let
-  cfg = config.alx.gui;
-in lib.mkIf cfg.enable
+in 
 {
   home.activation = {
     reloadWaybar = lib.hm.dag.entryAfter ["writeBoundary"] ''
@@ -31,7 +30,7 @@ in lib.mkIf cfg.enable
           "clock#time"
           "clock#date"
         ];
-        modules = {
+        #modules = {
           "battery" = {
             interval = 1;
             states = {
@@ -147,7 +146,7 @@ in lib.mkIf cfg.enable
             icon-size = 21;
           };
 
-        };
+        #};
       }
     ];
   };

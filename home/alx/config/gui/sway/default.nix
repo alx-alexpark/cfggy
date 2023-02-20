@@ -1,6 +1,5 @@
 { pkgs, config, lib, ... }:
 let
-  cfg = config.alx.gui;
   all-sh = pkgs.writeShellScriptBin "all.sh" (builtins.readFile ./all.sh);
   audio-sh = pkgs.writeShellScriptBin "audio.sh" (builtins.readFile ./audio.sh);
   bemenu-sh = pkgs.writeShellScriptBin "bemenu.sh" "bemenu -b -l 30 --fn 'Iosevka 10' --nb '#3D3488DD' --tb '#3D3488DD' --hb '#3D3488DD' --fb '#3D3488DD' --hf '#706E9ADD' --ab '#3D3488DD' --tf '#FFFFFF' $@";
@@ -11,7 +10,7 @@ let
   #shorten-sh = pkgs.writeShellScriptBin "shorten.sh" (builtins.readFile ./shorten.sh);
   wifi-sh = pkgs.writeShellScriptBin "wifi.sh" (builtins.readFile ./wifi.sh);
   wob-sh = pkgs.writeShellScriptBin "wob.sh" (builtins.readFile ./wob.sh);
-in lib.mkIf cfg.enable
+in 
 {
   home.packages = with pkgs; [
     all-sh
@@ -31,7 +30,7 @@ in lib.mkIf cfg.enable
     wl-clipboard
     wob-sh
   ];
-  wayland.windowManager.sway = lib.mkIf config.alx.gui.enable {
+  wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
     xwayland = true;
