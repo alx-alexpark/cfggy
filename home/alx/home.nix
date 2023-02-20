@@ -10,6 +10,11 @@
   programs.home-manager.enable = true;
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
   
+  home.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = 1;
+    XDG_CURRENT_DESKTOP = "sway"; 
+    EDITOR = "vim";
+  };  
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.

@@ -3,7 +3,7 @@
 
 #waybar {
   border: none;
-  font-size: 13px;
+  font-size: 16px;
   padding: 25px 0px 0px 25px;
   background-color: transparent;
   font-family: Iosevka;
@@ -36,6 +36,10 @@
 
 #battery, #clock, #cpu, #memory, #network, #temperature {
   background-color: @workspaces;
+}
+
+#battery {
+  border-bottom-left-radius: 5px;
 }
 
 #window {

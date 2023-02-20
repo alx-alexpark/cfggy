@@ -4,6 +4,7 @@
       ./sway
       ./waybar.nix
       ./wob.nix
+      ./mako.nix
     ];
 }
 
