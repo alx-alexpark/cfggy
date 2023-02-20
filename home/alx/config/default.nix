@@ -3,5 +3,6 @@
   imports = [
     ./gui
     ./terminal
+    ./programs.nix
   ];
 }

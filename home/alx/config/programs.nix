@@ -1,6 +1,7 @@
 {pkgs, ... }:
 {
   home.packages = with pkgs; [
+    alacritty
     openjdk17-bootstrap
     firefox
     fish

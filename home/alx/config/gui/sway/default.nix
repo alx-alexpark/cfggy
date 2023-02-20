@@ -29,6 +29,7 @@ in
     wifi-sh
     wl-clipboard
     wob-sh
+    brightnessctl
   ];
   wayland.windowManager.sway = {
     enable = true;
@@ -42,7 +43,7 @@ in
       input = {
         "*" = {
           xkb_layout = "us";
-          xkb_variant = "colemak";
+          #xkb_variant = "qwerty";
           xkb_numlock = "enable";
           xkb_options = "compose:caps";
         };
@@ -75,10 +76,12 @@ in
         #"Mod4+d" = "exec ${games-sh}/bin/games.sh";
         "Mod4+y" = "exec swaylock --screenshots --effect-pixelate 20";
         "Mod4+shift+y" = "exec systemctl suspend";
-        "Mod4+KP_Subtract" = "exec pactl set-sink-volume @DEFAULT_SINK -10%";
+        #"Mod4+KP_Subtract" = "exec pactl set-sink-volume @DEFAULT_SINK -10%";
         "Mod4+Mod1+Left" = "move workspace to output left";
         "Mod4+Mod1+Right" = "move workspace to output right";
         "Mod4+b" = "exec ${bluetooth-sh}/bin/bluetooth.sh";
+	"Mod4+Return" = "exec alacritty";
+  	#"Mod4+shift+c" = "reload";
         "XF86AudioPlay" = "exec ${music-sh}/bin/music.sh play";
         "XF86AudioPause" = "exec ${music-sh}/bin/music.sh pause";
         "XF86AudioNext" = "exec ${music-sh}/bin/music.sh next";
