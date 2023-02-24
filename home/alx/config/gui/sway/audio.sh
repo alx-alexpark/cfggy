@@ -9,7 +9,7 @@ fi
 if [ "$1" = "up" ] ; then
 	pamixer -i "${2}"
 elif [ "$1" = "down" ] ; then
-	pamixer -i "${2}"
+	pamixer -d "${2}"
 else
 	notify-send "Invaild command"
 fi

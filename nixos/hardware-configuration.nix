@@ -12,6 +12,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.kernelParams = [ "pcie_aspm.policy=performance" ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/661faedb-04a3-4adf-be88-7ac397370b4c";

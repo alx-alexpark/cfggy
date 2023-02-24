@@ -129,14 +129,15 @@
   services.usbguard.enable = true;
 
   # sekuritee
-  #security.pam.services = {
-  #  login.u2fAuth = true;
-  #  sudo.u2fAuth = true;
-  #};
-  #security.pam.u2f.enable = true;
-  #security.pam.u2f.control = "required";
-  #security.pam.u2f.cue = true;
-  #security.pam.u2f.authFile = "/etc/u2f_keys";
+  security.pam.services = {
+    login.u2fAuth = true;
+    sudo.u2fAuth = true;
+    swaylock.u2fAuth = true;
+  };
+  security.pam.u2f.enable = true;
+  security.pam.u2f.control = "required";
+  security.pam.u2f.cue = true;
+  security.pam.u2f.authFile = "/etc/u2f_keys";
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [];
