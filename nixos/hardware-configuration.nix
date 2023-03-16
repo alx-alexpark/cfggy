@@ -12,39 +12,45 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  boot.kernelParams = [ "pcie_aspm.policy=performance" ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/661faedb-04a3-4adf-be88-7ac397370b4c";
-      fsType = "ext4";
+    { device = "none";
+      fsType = "tmpfs";
+      options = ["defaults" "size=4G" "mode=755"];
     };
 
-  boot.initrd.luks.devices."luks-07ad5a8d-0a43-4fad-8741-f99c2e34ec9e".device = "/dev/disk/by-uuid/07ad5a8d-0a43-4fad-8741-f99c2e34ec9e";
-
-  boot.initrd.luks.devices."sus".device = "/dev/disk/by-uuid/8ae43d47-746c-43b0-8c04-afbbeaac6a10";
-
-  boot.initrd.luks.devices."sus".crypttabExtraOpts = ["fido2-device=auto"];  
-  boot.initrd.luks.devices."luks-07ad5a8d-0a43-4fad-8741-f99c2e34ec9e".crypttabExtraOpts = ["fido2-device=auto"];  
-
-  fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/D582-553D";
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/8458-77BC";
       fsType = "vfat";
-      options = [
-        "defaults"
-        "noexec"
-        "nodev"
-        "nosuid"
-      ];
     };
 
-  fileSystems."/home" = 
-    { device = "/dev/mapper/sus";
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/ff57ad5f-ae42-443d-a6c7-368b53985156";
       fsType = "btrfs";
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/b8be2e9c-cd46-4cae-8ad6-ddfde70b6fdc"; }
-    ];
+  boot.initrd.luks.devices."sus".device = "/dev/disk/by-uuid/53e83569-81c4-43f2-82bb-ad426589d723";
+
+  fileSystems."/etc/nixos" =
+    { device = "/nix/persist/etc/nixos";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/var/log" =
+    { device = "/nix/persist/var/log";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/377072a2-6648-435a-b02a-acd6a6fbb68a";
+      fsType = "btrfs";
+    };
+
+  boot.initrd.luks.devices."sussywussyhome".device = "/dev/disk/by-uuid/8ae43d47-746c-43b0-8c04-afbbeaac6a10";
+
+  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

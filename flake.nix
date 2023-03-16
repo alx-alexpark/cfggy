@@ -5,6 +5,8 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    impermanence.url = "github:nix-community/impermanence/master";
+    impermanence.flake = false;
   };
 
   outputs = { nixpkgs, home-manager, ... }: 

@@ -18,5 +18,12 @@
     slack
     python39Full
     python39Packages.pip
+
+    # better unix cmds
+    lsd 
+    tldr
+    ripgrep
+    duf
+    bat 
   ];
 }

@@ -10,12 +10,13 @@
       ./hardware-configuration.nix
       ./gpg.nix
       ./etc.nix
+      ./persistence.nix
     ];
 
+  users.mutableUsers = false;
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   # haha funny flakes and funny nix commands
   nix = {
@@ -30,14 +31,7 @@
     HandlePowerKey=ignore
   '';  
 
-  # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
-
-  # Enable swap on luks
-  boot.initrd.luks.devices."luks-b65001fd-a7eb-4942-8e38-aed539a99660".device = "/dev/disk/by-uuid/b65001fd-a7eb-4942-8e38-aed539a99660";
-  boot.initrd.luks.devices."luks-b65001fd-a7eb-4942-8e38-aed539a99660".keyFile = "/crypto_keyfile.bin";
+  environment.etc."machine-id".source = "/nix/persist/etc/machine-id";
 
   networking.hostName = "sussybaka-computer"; # Define your hostname. Very sus
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -113,6 +107,7 @@
       firefox
     #  thunderbird
     ];
+    initialHashedPassword = "$6$ngIlgFKF.zO/uppK$eQCJpT5f4XhvpanGiEFpG/HbYUxt2dzU4CLMjt6MxiwQmdL3cRvj4yVS0QBf4WbiKkd/0PLeeQ6TfcdXBX2Pu1";
     shell = pkgs.fish;
   };
 
@@ -125,13 +120,12 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   ];
 
-  # usbgarg
-  services.usbguard.enable = true;
+  services.tailscale.enable = true;
 
   # sekuritee
   security.pam.services = {
     login.u2fAuth = true;
-    sudo.u2fAuth = true;
+    sudo.u2fAuth = false;
     swaylock.u2fAuth = true;
   };
   security.pam.u2f.enable = true;
