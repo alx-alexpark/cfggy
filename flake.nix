@@ -9,7 +9,7 @@
     impermanence.flake = false;
   };
 
-  outputs = { nixpkgs, home-manager, ... }: 
+  outputs = { nixpkgs, home-manager, ... } @ inputs: 
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -39,6 +39,7 @@
       sussybaka-computer = lib.nixosSystem {
         inherit system;
         modules = [
+          (import "${inputs.impermanence}/nixos.nix")
           ./nixos/configuration.nix
         ];
       };
