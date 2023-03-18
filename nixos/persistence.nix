@@ -11,6 +11,7 @@
       "/media"
       "/etc/udev/rules.d"
       "/root"
+      "/etc/secureboot"
     ];
   };
 }

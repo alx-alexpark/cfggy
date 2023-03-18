@@ -7,6 +7,12 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     impermanence.url = "github:nix-community/impermanence/master";
     impermanence.flake = false;
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
+
+      # Optional but recommended to limit the size of your system closure.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, home-manager, ... } @ inputs: 
@@ -40,6 +46,7 @@
         inherit system;
         modules = [
           (import "${inputs.impermanence}/nixos.nix")
+          inputs.lanzaboote.nixosModules.lanzaboote
           ./nixos/configuration.nix
         ];
       };
