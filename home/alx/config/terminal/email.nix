@@ -47,6 +47,14 @@ in
       userName = "me@parkalex.dev";
       primary = true;
     };
+    team = econfig // {
+      address = "team@hacktheflow.org";
+      userName = "team@hacktheflow.org";
+      primary = false;
+      signature.text = "";
+      realName = "Hack The Flow Team";
+      passwordCommand = "pass team@hacktheflow.org";
+    };
   };
   programs.mbsync.enable = true;
   programs.msmtp.enable = true;

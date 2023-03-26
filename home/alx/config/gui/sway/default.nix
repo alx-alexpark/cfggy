@@ -31,6 +31,7 @@ in
     wob-sh
     brightnessctl
   ];
+
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;

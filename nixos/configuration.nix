@@ -31,7 +31,7 @@
     # don’t shutdown when power button is short-pressed
     HandlePowerKey=ignore
   '';  
-
+  systemd.services.NetworkManager-wait-online.enable = false; 
   environment.etc."machine-id".source = "/nix/persist/etc/machine-id";
 
   networking.hostName = "sussybaka-computer"; # Define your hostname. Very sus
@@ -62,12 +62,12 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+
+  networking.extraHosts = "192.168.0.2 mocksprocks.funny-bunny.ninja";
 
   # Configure keymap in X11
   services.xserver = {
@@ -120,6 +120,7 @@
   environment.systemPackages = with pkgs; [
     vim
     sbctl
+    wireguard-tools
   ];
 
   services.tailscale.enable = true;
