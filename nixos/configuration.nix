@@ -11,7 +11,7 @@
       ./gpg.nix
       ./etc.nix
       ./persistence.nix
-      ./secureboot.nix
+      #./secureboot.nix
     ];
 
   users.mutableUsers = false;
@@ -111,6 +111,7 @@
     initialHashedPassword = "$6$ngIlgFKF.zO/uppK$eQCJpT5f4XhvpanGiEFpG/HbYUxt2dzU4CLMjt6MxiwQmdL3cRvj4yVS0QBf4WbiKkd/0PLeeQ6TfcdXBX2Pu1";
     shell = pkgs.fish;
   };
+  programs.fish.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

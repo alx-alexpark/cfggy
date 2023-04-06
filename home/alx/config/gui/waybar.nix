@@ -64,7 +64,7 @@ in
           "cpu" = {
             interval = 5;
             tooltip = false;
-            format = "節 {usage}%";
+            format = "SUS {usage}%";
             states = {
               warning = 70;
               critical = 90;
@@ -73,7 +73,7 @@ in
 
           "memory" = {
             interval = 5;
-            format = " {}%";
+            format = "MOG {}%";
             states = {
               warning = 70;
               critial = 90;
@@ -106,7 +106,7 @@ in
             disable-scroll = false;
   	    format-icons = {
 	      "1" = "";
-	      "2" = "󰙯";
+	      "2" = "ඞ";
 	      "3" = "󰭹";
 	      "4" = "";
 	      "5" = "";

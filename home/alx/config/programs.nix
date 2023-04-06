@@ -20,10 +20,16 @@
     discord
     librewolf
     slack
+    foot
+    # development
     python39Full
     python39Packages.pip
     packwiz
     vscode
+    cargo
+    rustc
+    gcc
+    openssl
     # better unix cmds
     lsd 
     tldr
