@@ -51,7 +51,7 @@ in
       };
       output = {
         eDP-1 = {
-          #bg = "${pkgs.wallpapers}/share/wallpapers/pxl_earth.png fill";
+          bg = (builtins.toString ./mrbeast.jpg) + " fill";
         };
       };
       input = {

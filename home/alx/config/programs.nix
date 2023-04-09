@@ -21,6 +21,7 @@
     librewolf
     slack
     foot
+    neovim
     # development
     python39Full
     python39Packages.pip
