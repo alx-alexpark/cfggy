@@ -12,6 +12,7 @@
       "/etc/udev/rules.d"
       "/root"
       "/etc/secureboot"
+      "/etc/wireguard"
     ];
   };
 }

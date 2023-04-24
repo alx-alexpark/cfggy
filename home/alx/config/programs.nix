@@ -22,11 +22,14 @@
     slack
     foot
     neovim
+    #nerdfonts
     # development
     python39Full
+    nodejs
     python39Packages.pip
     packwiz
     vscode
+    rust-analyzer
     cargo
     rustc
     gcc

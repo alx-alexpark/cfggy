@@ -13,7 +13,7 @@
   home.sessionVariables = {
     MOZ_ENABLE_WAYLAND = 1;
     XDG_CURRENT_DESKTOP = "sway"; 
-    EDITOR = "vim";
+    EDITOR = "lvim";
   };  
 
   # Home Manager needs a bit of information about you and the

@@ -11,8 +11,10 @@
       ./gpg.nix
       ./etc.nix
       ./persistence.nix
-      #./secureboot.nix
+      ./secureboot.nix
     ];
+
+  services.flatpak.enable = true;
 
   users.mutableUsers = false;
   # Bootloader.
@@ -67,7 +69,7 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  networking.extraHosts = "192.168.0.2 mocksprocks.funny-bunny.ninja";
+  networking.extraHosts = "20.84.83.202 music.funny-bunny.ninja";
 
   # Configure keymap in X11
   services.xserver = {
