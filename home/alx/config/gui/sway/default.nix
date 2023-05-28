@@ -115,6 +115,9 @@ in
         {
           command = builtins.readFile ./idle.sh;
         }
+        {
+          command = "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK";
+        }
       ];
     };
     extraConfig = ''

@@ -6,6 +6,8 @@
         ls = "lsd";
         df = "duf";
         cat = "bat";
+        vim = "lvim";
+        nr = "nix run";
       };
   };
 

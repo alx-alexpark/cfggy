@@ -17,12 +17,12 @@
     fzf
     nheko
     ungoogled-chromium
-    discord
     librewolf
     slack
     foot
     neovim
-    #nerdfonts
+    veracrypt
+    opensc
     # development
     python39Full
     nodejs
