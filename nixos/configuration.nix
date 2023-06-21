@@ -11,7 +11,7 @@
       ./gpg.nix
       ./etc.nix
       ./persistence.nix
-      ./secureboot.nix
+      # ./secureboot.nix
     ];
 
   services.flatpak.enable = true;
@@ -21,6 +21,18 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+        if (action.id == "org.freedesktop.login1.suspend" ||
+            action.id == "org.freedesktop.login1.suspend-multiple-sessions" ||
+            action.id == "org.freedesktop.login1.hibernate" ||
+            action.id == "org.freedesktop.login1.hibernate-multiple-sessions")
+        {
+            return polkit.Result.NO;
+        }
+    });
+  '';
+
   # haha funny flakes and funny nix commands
   nix = {
     package = pkgs.nixFlakes;
@@ -29,6 +41,8 @@
     '';
   };
  
+  networking.nameservers = [ "9.9.9.9" ];
+
   services.logind.extraConfig = ''
     # don’t shutdown when power button is short-pressed
     HandlePowerKey=ignore
@@ -51,6 +65,12 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+  
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = false; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = false; # Open ports in the firewall for Source Dedicated Server
+  };
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
@@ -102,7 +122,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.alx = {
-    home = "/home/alex";
+    home = "/home/alx";
     isNormalUser = true;
     description = "Alex Park";
     extraGroups = [ "networkmanager" "wheel" ];
@@ -140,8 +160,8 @@
   security.pam.u2f.authFile = "/etc/u2f_keys";
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [];
-  networking.firewall.allowedUDPPorts = [];
+  networking.firewall.allowedTCPPorts = [53317];
+  networking.firewall.allowedUDPPorts = [53317];
   networking.firewall.enable = true;
 
   # This value determines the NixOS release from which the default

@@ -58,6 +58,7 @@ in
   };
   programs.mbsync.enable = true;
   programs.msmtp.enable = true;
+  programs.thunderbird.enable = true;
   programs.neomutt = {
     enable = true;
     editor = "vim";

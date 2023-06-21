@@ -19,7 +19,7 @@
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "alx";
-  home.homeDirectory = "/home/alex";
+  home.homeDirectory = "/home/alx";
   # my programs
   # programs.steam = {
   #  enable = true;

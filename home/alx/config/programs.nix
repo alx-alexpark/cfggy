@@ -11,6 +11,7 @@
     unzip
     gnupg
     tmux
+    vlc
     pciutils
     obs-studio
     fd
@@ -20,9 +21,11 @@
     librewolf
     slack
     foot
+    thunderbird
     neovim
     veracrypt
     opensc
+    prismlauncher
     # development
     python39Full
     nodejs
