@@ -34,31 +34,36 @@ let
           PGP Public key: 69EBCBF0A7D62959881B4A2C24A3B83FB26AA900
         '';
       };
-      passwordCommand = "env TERM=alacritty pass me@parkalex.dev";
-      realName = "Alex Park";
     };
 
 in
 {
   accounts.email.maildirBasePath = "mail";
   accounts.email.accounts = {
-    me = econfig // {
+    me-parkalex = econfig // {
       address = "me@parkalex.dev";
       userName = "me@parkalex.dev";
+      realName = "Alex Park";
       primary = true;
+      passwordCommand = "pass me@parkalex.dev";
+      signature = {
+        showSignature = "append";
+        text = ''
+          Alex(ander) Park | www.parkalex.dev
+          PGP Public key: 69EBCBF0A7D62959881B4A2C24A3B83FB26AA900
+        '';
+      };
     };
-    team = econfig // {
+    htf = econfig // {
       address = "team@hacktheflow.org";
       userName = "team@hacktheflow.org";
       primary = false;
-      signature.text = "";
       realName = "Hack The Flow Team";
       passwordCommand = "pass team@hacktheflow.org";
     };
   };
   programs.mbsync.enable = true;
   programs.msmtp.enable = true;
-  programs.thunderbird.enable = true;
   programs.neomutt = {
     enable = true;
     editor = "vim";

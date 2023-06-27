@@ -15,6 +15,7 @@
     ];
 
   services.flatpak.enable = true;
+  services.clamav.updater.enable = true;
 
   users.mutableUsers = false;
   # Bootloader.
@@ -89,7 +90,7 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  networking.extraHosts = "20.84.83.202 music.funny-bunny.ninja";
+  networking.extraHosts = "fd7a:115c:a1e0::6 *.vpn.projectsegfau.lt";
 
   # Configure keymap in X11
   services.xserver = {
