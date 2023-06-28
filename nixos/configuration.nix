@@ -90,7 +90,7 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  networking.extraHosts = "fd7a:115c:a1e0::6 *.vpn.projectsegfau.lt";
+  networking.extraHosts = "192.168.0.2 mocksprocks.parkalex.dev";
 
   # Configure keymap in X11
   services.xserver = {
@@ -161,8 +161,8 @@
   security.pam.u2f.authFile = "/etc/u2f_keys";
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [53317];
-  networking.firewall.allowedUDPPorts = [53317];
+  networking.firewall.allowedTCPPorts = [];
+  networking.firewall.allowedUDPPorts = [];
   networking.firewall.enable = true;
 
   # This value determines the NixOS release from which the default

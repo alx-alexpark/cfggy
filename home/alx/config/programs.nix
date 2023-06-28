@@ -8,6 +8,8 @@
     fish
     pass
     xdotool
+    schildichat-desktop
+    joplin-desktop
     unzip
     gnupg
     tmux
