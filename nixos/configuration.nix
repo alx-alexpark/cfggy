@@ -41,6 +41,9 @@
       experimental-features = nix-command flakes
     '';
   };
+
+  virtualisation.libvirtd.enable = true;
+  programs.dconf.enable = true;
  
   networking.nameservers = [ "9.9.9.9" ];
 
@@ -90,8 +93,6 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  networking.extraHosts = "192.168.0.2 mocksprocks.parkalex.dev";
-
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
@@ -126,7 +127,7 @@
     home = "/home/alx";
     isNormalUser = true;
     description = "Alex Park";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [
       firefox
     #  thunderbird
@@ -145,6 +146,7 @@
     vim
     sbctl
     wireguard-tools
+    virt-manager
   ];
 
   services.tailscale.enable = true;
