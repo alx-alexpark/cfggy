@@ -30,7 +30,7 @@
       alx = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [
-          ./home/alx/home.nix
+          ./alx/home.nix
           #{
           #  home = {
           #    username = "alx";
