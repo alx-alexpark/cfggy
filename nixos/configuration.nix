@@ -14,6 +14,7 @@
       # ./secureboot.nix
     ];
 
+  services.pcscd.enable = true;
   services.flatpak.enable = true;
   services.clamav.updater.enable = true;
 
@@ -46,7 +47,7 @@
   programs.dconf.enable = true;
  
   networking.nameservers = [ "9.9.9.9" ];
-
+  networking.extraHosts = "10.0.0.2 mocksprocks.parkalex.dev";
   services.logind.extraConfig = ''
     # don’t shutdown when power button is short-pressed
     HandlePowerKey=ignore

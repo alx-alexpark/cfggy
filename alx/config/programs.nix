@@ -14,6 +14,8 @@
     gnupg
     tmux
     vlc
+    borgbackup
+    croc
     pciutils
     obs-studio
     fd

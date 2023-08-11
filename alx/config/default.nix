@@ -3,7 +3,7 @@
   imports = [
     ./gui
     ./terminal
-    ./yubikey.nix
     ./programs.nix
+    ./syncthing.nix
   ];
 }
