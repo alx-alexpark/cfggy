@@ -4,6 +4,5 @@
     ./gui
     ./terminal
     ./programs.nix
-    ./syncthing.nix
   ];
 }
