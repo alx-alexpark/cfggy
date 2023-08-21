@@ -72,7 +72,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
   
   programs.steam = {
-    enable = true;
+    enable = false;
     remotePlay.openFirewall = false; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = false; # Open ports in the firewall for Source Dedicated Server
   };

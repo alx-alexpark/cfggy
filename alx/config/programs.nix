@@ -33,6 +33,7 @@
     # development
     python39Full
     nodejs
+    eclipses.eclipse-java
     python39Packages.pip
     packwiz
     vscode
