@@ -14,7 +14,6 @@
       # ./secureboot.nix
     ];
 
-  services.pcscd.enable = true;
   services.flatpak.enable = true;
   services.clamav.updater.enable = true;
 
