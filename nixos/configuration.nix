@@ -17,6 +17,8 @@
   services.flatpak.enable = true;
   services.clamav.updater.enable = true;
 
+  services.usbmuxd.enable = true;
+
   users.mutableUsers = false;
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -127,7 +129,7 @@
     home = "/home/alx";
     isNormalUser = true;
     description = "Alex Park";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "fuse" "usbmux" ];
     packages = with pkgs; [
       firefox
     #  thunderbird
